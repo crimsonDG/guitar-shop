@@ -1,5 +1,11 @@
 import type { Guitar } from '../types/guitar';
 
+// Функція для отримання правильного шляху до зображення
+const getImagePath = (imageName: string): string => {
+  const basePath = import.meta.env.PROD ? '/guitar-shop' : '';
+  return `${basePath}/images/guitars/${imageName}`;
+};
+
 // Реальні дані гітар з правильними моделями
 const REAL_GUITARS_DATA: Guitar[] = [
   {
@@ -9,7 +15,7 @@ const REAL_GUITARS_DATA: Guitar[] = [
     model: 'G110',
     price: 299,
     description: 'The Cort G110 electric guitar features a comfortable body shape with excellent playability. Open Pore Black Cherry finish gives it a modern, sophisticated look while maintaining the natural feel of the wood.',
-    imageUrl: '/images/guitars/cort.png', // Простий шлях без бази
+    imageUrl: getImagePath('cort.png'),
     category: 'electric',
     specifications: {
       bodyMaterial: 'Basswood',
@@ -30,7 +36,7 @@ const REAL_GUITARS_DATA: Guitar[] = [
     model: 'KX300',
     price: 449,
     description: 'The Cort KX300 offers exceptional value with professional features. Raw Burst finish showcases beautiful wood grain patterns while delivering powerful tone and sustain.',
-    imageUrl: '/images/guitars/cort_kx300.png',
+    imageUrl: getImagePath('cort_kx300.png'),
     category: 'electric',
     specifications: {
       bodyMaterial: 'Mahogany',
@@ -51,7 +57,7 @@ const REAL_GUITARS_DATA: Guitar[] = [
     model: 'GRX70QA',
     price: 279,
     description: 'The Ibanez GRX70QA features quilted maple art grain top with transparent red burst finish. Perfect for beginners and intermediate players seeking quality and style.',
-    imageUrl: '/images/guitars/ibanez.png',
+    imageUrl: getImagePath('ibanez.png'),
     category: 'electric',
     specifications: {
       bodyMaterial: 'Poplar with Quilted Maple Art Grain top',
@@ -72,7 +78,7 @@ const REAL_GUITARS_DATA: Guitar[] = [
     model: 'GRG7221QA',
     price: 399,
     description: '7-string electric guitar with quilted maple art grain top. The GRG7221QA delivers extended range for modern metal and progressive styles with exceptional playability.',
-    imageUrl: '/images/guitars/ibanez_tks.png',
+    imageUrl: getImagePath('ibanez_tks.png'),
     category: 'electric',
     specifications: {
       bodyMaterial: 'Poplar with Quilted Maple Art Grain top',
@@ -93,7 +99,7 @@ const REAL_GUITARS_DATA: Guitar[] = [
     model: 'JS12',
     price: 199,
     description: 'The Jackson JS12 Dinky features a striking metallic blue finish with classic Jackson styling. Great entry-level guitar with authentic Jackson DNA and aggressive tone.',
-    imageUrl: '/images/guitars/jackson.png',
+    imageUrl: getImagePath('jackson.png'),
     category: 'electric',
     specifications: {
       bodyMaterial: 'Poplar',
@@ -114,7 +120,7 @@ const REAL_GUITARS_DATA: Guitar[] = [
     model: 'JT30',
     price: 159,
     description: 'The Jay Turser JT30 in metallic red delivers classic electric guitar tone at an affordable price. Perfect for students and budget-conscious musicians.',
-    imageUrl: '/images/guitars/jay_turser.png',
+    imageUrl: getImagePath('jay_turser.png'),
     category: 'electric',
     specifications: {
       bodyMaterial: 'Basswood',
@@ -135,7 +141,7 @@ const REAL_GUITARS_DATA: Guitar[] = [
     model: 'ST-40',
     price: 129,
     description: 'The Parksons ST-40 features classic 3-tone sunburst finish with traditional styling. An excellent choice for beginners looking for authentic electric guitar experience.',
-    imageUrl: '/images/guitars/parkons.png',
+    imageUrl: getImagePath('parkons.png'),
     category: 'electric',
     specifications: {
       bodyMaterial: 'Basswood',
@@ -156,7 +162,7 @@ const REAL_GUITARS_DATA: Guitar[] = [
     model: 'PACIFICA 112J',
     price: 349,
     description: 'The Yamaha Pacifica 112J Left-handed version delivers legendary Yamaha quality and tone. Features HSS pickup configuration for versatile sound options.',
-    imageUrl: '/images/guitars/yamaha.png',
+    imageUrl: getImagePath('yamaha.png'),
     category: 'electric',
     specifications: {
       bodyMaterial: 'Alder',
@@ -178,7 +184,7 @@ const REAL_GUITARS_DATA: Guitar[] = [
     model: 'D-28',
     price: 3199,
     description: 'The Martin D-28 is the cornerstone of the Martin line. The bold, booming voice of the D-28 can be heard on countless recordings by the biggest names in music.',
-    imageUrl: '/images/guitars/Martin D-28.png',
+    imageUrl: getImagePath('Martin D-28.png'),
     category: 'acoustic',
     specifications: {
       bodyMaterial: 'East Indian Rosewood Back and Sides, Sitka Spruce Top',
@@ -198,7 +204,7 @@ const REAL_GUITARS_DATA: Guitar[] = [
     model: 'Player Precision Bass',
     price: 879,
     description: 'The inspiring sound of a Precision Bass is one of the foundations of Fender. Featuring the classic split-coil pickup design.',
-    imageUrl: '/images/guitars/bas-gitara-fender-player-precision-bass.png',
+    imageUrl: getImagePath('bas-gitara-fender-player-precision-bass.png'),
     category: 'bass',
     specifications: {
       bodyMaterial: 'Alder',
@@ -219,7 +225,7 @@ const REAL_GUITARS_DATA: Guitar[] = [
     model: 'C40',
     price: 149,
     description: 'The C40 features a spruce top with meranti back and sides that deliver a bright, clear tone perfect for classical playing.',
-    imageUrl: '/images/guitars/c40-II-main-yamaha.png',
+    imageUrl: getImagePath('c40-II-main-yamaha.png'),
     category: 'classical',
     specifications: {
       bodyMaterial: 'Meranti Back/Sides, Spruce Top',
@@ -239,7 +245,7 @@ const REAL_GUITARS_DATA: Guitar[] = [
     model: 'StingRay',
     price: 2199,
     description: 'The Music Man StingRay bass is an icon in the bass world, known for its distinctive tone and high-quality construction.',
-    imageUrl: '/images/guitars/MusicmanStingray.png',
+    imageUrl: getImagePath('MusicmanStingray.png'),
     category: 'bass',
     specifications: {
       bodyMaterial: 'Ash',
@@ -255,32 +261,29 @@ const REAL_GUITARS_DATA: Guitar[] = [
   }
 ];
 
-// Використовуємо дані як є, без обробки шляхів
-const processedGuitarsData = REAL_GUITARS_DATA;
-
 // Симуляція API з реальними даними
 export const realGuitarService = {
   async getAllGuitars(): Promise<Guitar[]> {
     // Симулюємо затримку мережі
     await new Promise(resolve => setTimeout(resolve, 800));
-    return processedGuitarsData;
+    return REAL_GUITARS_DATA;
   },
 
   async getGuitarById(id: string): Promise<Guitar | null> {
     await new Promise(resolve => setTimeout(resolve, 400));
-    return processedGuitarsData.find(guitar => guitar.id === id) || null;
+    return REAL_GUITARS_DATA.find(guitar => guitar.id === id) || null;
   },
 
   async getGuitarsByCategory(category: string): Promise<Guitar[]> {
     await new Promise(resolve => setTimeout(resolve, 600));
-    if (category === 'all') return processedGuitarsData;
-    return processedGuitarsData.filter(guitar => guitar.category === category);
+    if (category === 'all') return REAL_GUITARS_DATA;
+    return REAL_GUITARS_DATA.filter(guitar => guitar.category === category);
   },
 
   async searchGuitars(query: string): Promise<Guitar[]> {
     await new Promise(resolve => setTimeout(resolve, 500));
     const lowercaseQuery = query.toLowerCase();
-    return processedGuitarsData.filter(guitar => 
+    return REAL_GUITARS_DATA.filter(guitar => 
       guitar.name.toLowerCase().includes(lowercaseQuery) ||
       guitar.brand.toLowerCase().includes(lowercaseQuery) ||
       guitar.model.toLowerCase().includes(lowercaseQuery) ||
@@ -290,14 +293,14 @@ export const realGuitarService = {
 
   async getGuitarsByPriceRange(minPrice: number, maxPrice: number): Promise<Guitar[]> {
     await new Promise(resolve => setTimeout(resolve, 600));
-    return processedGuitarsData.filter(guitar => 
+    return REAL_GUITARS_DATA.filter(guitar => 
       guitar.price >= minPrice && guitar.price <= maxPrice
     );
   },
 
   async getFeaturedGuitars(): Promise<Guitar[]> {
     await new Promise(resolve => setTimeout(resolve, 400));
-    return processedGuitarsData
+    return REAL_GUITARS_DATA
       .filter(guitar => guitar.rating >= 4.5)
       .slice(0, 6);
   }

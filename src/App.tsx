@@ -8,9 +8,12 @@ import { ContactPage } from './pages/Contact/ContactPage';
 import { AuthPage } from './pages/Auth/AuthPage';
 import './App.css';
 
+// Базовий URL для GitHub Pages
+const basename = import.meta.env.PROD ? '/guitar-shop' : '';
+
 function App() {
   return (
-    <Router>
+    <Router basename={basename}>
       <div className="App">
         <Header />
         <main>

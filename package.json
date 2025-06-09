@@ -15,7 +15,11 @@
     "test:coverage": "vitest --coverage",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "e2e": "start-server-and-test dev http://localhost:5173/ cypress:run"
+    "cypress:dev": "wait-on http://localhost:5173 && cypress open",
+    "e2e": "start-server-and-test dev http://localhost:5173/ cypress:run",
+    "e2e:open": "start-server-and-test dev http://localhost:5173/ cypress:open",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
@@ -33,7 +37,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
-    "@types/node": "^22.15.30",
+    "@types/node": "^22.10.1",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@types/react-router-dom": "^5.3.3",
@@ -44,14 +48,15 @@
     "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
-    "gh-pages": "^6.3.0",
+    "gh-pages": "^6.2.0",
     "globals": "^16.0.0",
     "jest-environment-jsdom": "^30.0.0-beta.3",
     "jsdom": "^26.1.0",
-    "start-server-and-test": "^2.0.12",
+    "start-server-and-test": "^2.0.10",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.30.1",
     "vite": "^6.3.5",
-    "vitest": "^3.2.2"
+    "vitest": "^3.2.2",
+    "wait-on": "^8.0.1"
   }
 }
